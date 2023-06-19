@@ -13,7 +13,6 @@ export default function getAllBooks(req, res) {
         const limit = parseInt(req.query.limit);
 
         if(isNaN(page) && isNaN(limit)) {
-            console.log("test")
             res.status(200).send(books)
             return
         }
@@ -38,8 +37,6 @@ export default function getAllBooks(req, res) {
  
         results.results = books.slice(startIndex, endIndex);
 
-        console.log(results)
-    
         res.status(200).send(results)
     } catch (error) {
         console.log(error)
