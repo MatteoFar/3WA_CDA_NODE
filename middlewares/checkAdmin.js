@@ -8,7 +8,7 @@ export default function checkAdmin(req,res,next) {
         return res.status(401).send('must be authentified')
     } 
 
-    jwt.verify(token, "secret", (err, user) => {
+    jwt.verify(token, process.env.SECRET_TOKEN_KEY, (err, user) => {
         if(err) throw err
         req.user = user
         next()
